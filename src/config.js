@@ -29,14 +29,7 @@ const config = {
     defaultEmail: 'no-reply@showroom-backend.com',
     sendgridKey: requireProcessEnv('SENDGRID_KEY'),
     masterKey: requireProcessEnv('MASTER_KEY'),
-    jwtSecret: requireProcessEnv('JWT_SECRET'),
-    mongo: {
-      options: {
-        db: {
-          safe: true
-        }
-      }
-    }
+    jwtSecret: requireProcessEnv('JWT_SECRET')
   },
   test: { },
   development: {
