@@ -26,13 +26,14 @@ const itemSchema = new Schema({
     type: String
   },
   tags: {
-    type: String
+    type: [String]
   },
   image: {
     type: String
   },
   userContact: {
-    type: String
+    type: Schema.ObjectId,
+    ref: 'User'
   }
 }, {
   timestamps: true,
