@@ -7,11 +7,13 @@ const linkSchema = new Schema({
   description: {
     type: String
   },
-  items: {
-    type: String
-  },
+  items: [{
+    type: Schema.ObjectId,
+    ref: 'Item'
+  }],
   userContact: {
-    type: String
+    type: Schema.ObjectId,
+    ref: 'User'
   },
   extension: {
     type: String
