@@ -30,6 +30,9 @@ const userSchema = new Schema({
     enum: roles,
     default: 'user'
   },
+  phone: {
+    type: String
+  },
   picture: {
     type: String,
     trim: true
@@ -66,7 +69,7 @@ userSchema.pre('save', function (next) {
 userSchema.methods = {
   view (full) {
     let view = {}
-    let fields = ['id', 'name', 'picture']
+    let fields = ['id', 'name', 'picture', 'phone']
 
     if (full) {
       fields = [...fields, 'email', 'createdAt']
