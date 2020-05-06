@@ -17,6 +17,9 @@ const linkSchema = new Schema({
   },
   extension: {
     type: String
+  },
+  clientName: {
+    type: String
   }
 }, {
   timestamps: true,
@@ -35,6 +38,7 @@ linkSchema.methods = {
       description: this.description,
       items: this.items,
       userContact: this.userContact,
+      clientName: this.clientName,
       extension: this.extension,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt

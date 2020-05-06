@@ -7,7 +7,7 @@ import { schema } from './model'
 export Link, { schema } from './model'
 
 const router = new Router()
-const { name, description, items, userContact, extension } = schema.tree
+const { name, description, items, userContact, clientName, extension } = schema.tree
 
 /**
  * @api {post} /links Create link
@@ -19,6 +19,7 @@ const { name, description, items, userContact, extension } = schema.tree
  * @apiParam description Link's description.
  * @apiParam items Link's items.
  * @apiParam userContact Link's userContact.
+ * @apiParam clientName Link's clientName.
  * @apiParam extension Link's extension.
  * @apiSuccess {Object} link Link's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
@@ -27,7 +28,7 @@ const { name, description, items, userContact, extension } = schema.tree
  */
 router.post('/',
   token({ required: true, roles: ['admin'] }),
-  body({ name, description, items, userContact, extension }),
+  body({ name, description, items, userContact, clientName, extension }),
   create)
 
 /**
@@ -63,6 +64,7 @@ router.get('/:id',
  * @apiParam description Link's description.
  * @apiParam items Link's items.
  * @apiParam userContact Link's userContact.
+ * @apiParam clientName Link's clientName.
  * @apiParam extension Link's extension.
  * @apiSuccess {Object} link Link's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
@@ -71,7 +73,7 @@ router.get('/:id',
  */
 router.put('/:id',
   token({ required: true, roles: ['admin'] }),
-  body({ name, description, items, userContact, extension }),
+  body({ name, description, items, userContact, clientName, extension }),
   update)
 
 /**
