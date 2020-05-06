@@ -31,10 +31,10 @@ const config = {
     masterKey: requireProcessEnv('MASTER_KEY'),
     jwtSecret: requireProcessEnv('JWT_SECRET')
   },
-  test: { },
+  test: {},
   development: {
     mongo: {
-      uri: 'mongodb://localhost/showroom-backend-dev',
+      uri: 'mongodb+srv://angulz:' + encodeURIComponent('Chilaquiles%231') + '@cluster0-jrblr.mongodb.net/showroom?retryWrites=true&w=majority',
       options: {
         debug: true
       }
@@ -44,7 +44,7 @@ const config = {
     ip: process.env.IP || undefined,
     port: process.env.PORT || 8080,
     mongo: {
-      uri: process.env.MONGODB_URI || 'mongodb://localhost/showroom-backend'
+      uri: process.env.MONGODB_URI || 'mongodb+srv://angulz:' + encodeURIComponent('Chilaquiles%231') + '@cluster0-jrblr.mongodb.net/showroom?retryWrites=true&w=majority'
     }
   }
 }
