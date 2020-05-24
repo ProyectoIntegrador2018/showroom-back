@@ -38,6 +38,9 @@ const linkSchema = new Schema({
   },
   statValue3: {
     type: String
+  },
+  categories: {
+    type: [String]
   }
 }, {
   timestamps: true,
@@ -64,6 +67,7 @@ linkSchema.methods = {
       statValue1: this.statValue1,
       statValue2: this.statValue2,
       statValue3: this.statValue3,
+      categories: this.categories,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }

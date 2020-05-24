@@ -7,7 +7,7 @@ import { schema } from './model'
 export Link, { schema } from './model'
 
 const router = new Router()
-const { name, description, items, userContact, clientName, extension, statTitle1, statTitle2, statTitle3, statValue1, statValue2, statValue3 } = schema.tree
+const { name, description, items, userContact, clientName, extension, statTitle1, statTitle2, statTitle3, statValue1, statValue2, statValue3, categories } = schema.tree
 
 /**
  * @api {post} /links Create link
@@ -27,6 +27,7 @@ const { name, description, items, userContact, clientName, extension, statTitle1
  * @apiParam statValue1 Link's statistic 1 value.
  * @apiParam statValue2 Link's statistic 2 value.
  * @apiParam statValue3 Link's statistic 3 value.
+ * @apiParam categories Link's categories.
  * @apiSuccess {Object} link Link's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Link not found.
@@ -34,7 +35,7 @@ const { name, description, items, userContact, clientName, extension, statTitle1
  */
 router.post('/',
   token({ required: true, roles: ['admin'] }),
-  body({ name, description, items, userContact, clientName, extension, statTitle1, statTitle2, statTitle3, statValue1, statValue2, statValue3 }),
+  body({ name, description, items, userContact, clientName, extension, statTitle1, statTitle2, statTitle3, statValue1, statValue2, statValue3, categories }),
   create)
 
 /**
@@ -78,6 +79,7 @@ router.get('/:id',
  * @apiParam statValue1 Link's statistic 1 value.
  * @apiParam statValue2 Link's statistic 2 value.
  * @apiParam statValue3 Link's statistic 3 value.
+ * @apiParam categories Link's categories.
  * @apiSuccess {Object} link Link's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Link not found.
@@ -85,7 +87,7 @@ router.get('/:id',
  */
 router.put('/:id',
   token({ required: true, roles: ['admin'] }),
-  body({ name, description, items, userContact, clientName, extension, statTitle1, statTitle2, statTitle3, statValue1, statValue2, statValue3}),
+  body({ name, description, items, userContact, clientName, extension, statTitle1, statTitle2, statTitle3, statValue1, statValue2, statValue3, categories }),
   update)
 
 /**
