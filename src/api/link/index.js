@@ -7,7 +7,7 @@ import { schema } from './model'
 export Link, { schema } from './model'
 
 const router = new Router()
-const { name, description, items, userContact, clientName, extension } = schema.tree
+const { name, description, items, userContact, clientName, extension, statTitle1, statTitle2, statTitle3, statValue1, statValue2, statValue3 } = schema.tree
 
 /**
  * @api {post} /links Create link
@@ -21,6 +21,12 @@ const { name, description, items, userContact, clientName, extension } = schema.
  * @apiParam userContact Link's userContact.
  * @apiParam clientName Link's clientName.
  * @apiParam extension Link's extension.
+ * @apiParam statTitle1 Link's statistic 1 title.
+ * @apiParam statTitle2 Link's statistic 2 title.
+ * @apiParam statTitle3 Link's statistic 3 title.
+ * @apiParam statValue1 Link's statistic 1 value.
+ * @apiParam statValue2 Link's statistic 2 value.
+ * @apiParam statValue3 Link's statistic 3 value.
  * @apiSuccess {Object} link Link's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Link not found.
@@ -28,7 +34,7 @@ const { name, description, items, userContact, clientName, extension } = schema.
  */
 router.post('/',
   token({ required: true, roles: ['admin'] }),
-  body({ name, description, items, userContact, clientName, extension }),
+  body({ name, description, items, userContact, clientName, extension, statTitle1, statTitle2, statTitle3, statValue1, statValue2, statValue3 }),
   create)
 
 /**
@@ -66,6 +72,12 @@ router.get('/:id',
  * @apiParam userContact Link's userContact.
  * @apiParam clientName Link's clientName.
  * @apiParam extension Link's extension.
+ * @apiParam statTitle1 Link's statistic 1 title.
+ * @apiParam statTitle2 Link's statistic 2 title.
+ * @apiParam statTitle3 Link's statistic 3 title.
+ * @apiParam statValue1 Link's statistic 1 value.
+ * @apiParam statValue2 Link's statistic 2 value.
+ * @apiParam statValue3 Link's statistic 3 value.
  * @apiSuccess {Object} link Link's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Link not found.
@@ -73,7 +85,7 @@ router.get('/:id',
  */
 router.put('/:id',
   token({ required: true, roles: ['admin'] }),
-  body({ name, description, items, userContact, clientName, extension }),
+  body({ name, description, items, userContact, clientName, extension, statTitle1, statTitle2, statTitle3, statValue1, statValue2, statValue3}),
   update)
 
 /**

@@ -20,6 +20,24 @@ const linkSchema = new Schema({
   },
   clientName: {
     type: String
+  },
+  statTitle1: {
+    type: String
+  },
+  statTitle2: {
+    type: String
+  },
+  statTitle3: {
+    type: String
+  },
+  statValue1: {
+    type: String
+  },
+  statValue2: {
+    type: String
+  },
+  statValue3: {
+    type: String
   }
 }, {
   timestamps: true,
@@ -40,6 +58,12 @@ linkSchema.methods = {
       userContact: this.userContact,
       clientName: this.clientName,
       extension: this.extension,
+      statTitle1: this.statTitle1,
+      statTitle2: this.statTitle2,
+      statTitle3: this.statTitle3,
+      statValue1: this.statValue1,
+      statValue2: this.statValue2,
+      statValue3: this.statValue3,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }
