@@ -10,7 +10,7 @@ export const create = ({ bodymen: { body: { email, link } } }, res, next) =>
     .then((reset) => {
       if (!reset) return null
       const { user, token } = reset
-      link = `${link.replace(/\/$/, '')}/${token}`
+      let link = `https://proyectointegrador2018.github.io/showroom-front/LostAccount/?${token}`
       const content = `
         Hey, ${user.name}.<br><br>
         You requested a new password for your Showroom Backend account.<br>
