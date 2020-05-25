@@ -31,6 +31,15 @@ const itemSchema = new Schema({
   image: {
     type: String
   },
+  cardImg1: {
+    type: String
+  },
+  cardImg2: {
+    type: String
+  },
+  cardImg3: {
+    type: String
+  },
   userContact: {
     type: Schema.ObjectId,
     ref: 'User'
@@ -44,7 +53,7 @@ const itemSchema = new Schema({
 })
 
 itemSchema.methods = {
-  view (full) {
+  view(full) {
     const view = {
       // simple view
       id: this.id,
@@ -58,6 +67,9 @@ itemSchema.methods = {
       description3: this.description3,
       tags: this.tags,
       image: this.image,
+      cardImg1: this.cardImg1,
+      cardImg2: this.cardImg2,
+      cardImg3: this.cardImg3,
       userContact: this.userContact,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt

@@ -7,7 +7,7 @@ import { schema } from './model'
 export Item, { schema } from './model'
 
 const router = new Router()
-const { name, subtitle, title1, title2, title3, desciption1, description2, description3, tags, image, userContact } = schema.tree
+const { name, subtitle, title1, title2, title3, desciption1, description2, description3, tags, image, cardImg1, cardImg2, cardImg3, userContact } = schema.tree
 
 /**
  * @api {post} /items Create item
@@ -25,6 +25,9 @@ const { name, subtitle, title1, title2, title3, desciption1, description2, descr
  * @apiParam description3 Item's description3.
  * @apiParam tags Item's tags.
  * @apiParam image Item's image.
+ * @apiParam cardImg1 Item's card image 1.
+ * @apiParam cardImg2 Item's card image 2.
+ * @apiParam cardImg3 Item's card image 3.
  * @apiParam userContact Item's userContact.
  * @apiSuccess {Object} item Item's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
@@ -33,7 +36,7 @@ const { name, subtitle, title1, title2, title3, desciption1, description2, descr
  */
 router.post('/',
   token({ required: true, roles: ['admin'] }),
-  body({ name, subtitle, title1, title2, title3, desciption1, description2, description3, tags, image, userContact }),
+  body({ name, subtitle, title1, title2, title3, desciption1, description2, description3, tags, image, cardImg1, cardImg2, cardImg3, userContact }),
   create)
 
 /**
@@ -75,6 +78,9 @@ router.get('/:id',
  * @apiParam description3 Item's description3.
  * @apiParam tags Item's tags.
  * @apiParam image Item's image.
+ * @apiParam cardImg1 Item's card image 1.
+ * @apiParam cardImg2 Item's card image 2.
+ * @apiParam cardImg3 Item's card image 3.
  * @apiParam userContact Item's userContact.
  * @apiSuccess {Object} item Item's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
@@ -83,7 +89,7 @@ router.get('/:id',
  */
 router.put('/:id',
   token({ required: true, roles: ['admin'] }),
-  body({ name, subtitle, title1, title2, title3, desciption1, description2, description3, tags, image, userContact }),
+  body({ name, subtitle, title1, title2, title3, desciption1, description2, description3, tags, image, cardImg1, cardImg2, cardImg3, userContact }),
   update)
 
 /**
