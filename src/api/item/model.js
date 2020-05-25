@@ -16,7 +16,7 @@ const itemSchema = new Schema({
   title3: {
     type: String
   },
-  desciption1: {
+  description1: {
     type: String
   },
   description2: {
@@ -62,7 +62,7 @@ itemSchema.methods = {
       title1: this.title1,
       title2: this.title2,
       title3: this.title3,
-      desciption1: this.desciption1,
+      description1: this.description1,
       description2: this.description2,
       description3: this.description3,
       tags: this.tags,

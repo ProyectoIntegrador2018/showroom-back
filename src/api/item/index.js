@@ -7,7 +7,7 @@ import { schema } from './model'
 export Item, { schema } from './model'
 
 const router = new Router()
-const { name, subtitle, title1, title2, title3, desciption1, description2, description3, tags, image, cardImg1, cardImg2, cardImg3, userContact } = schema.tree
+const { name, subtitle, title1, title2, title3, description1, description2, description3, tags, image, cardImg1, cardImg2, cardImg3, userContact } = schema.tree
 
 /**
  * @api {post} /items Create item
@@ -20,7 +20,7 @@ const { name, subtitle, title1, title2, title3, desciption1, description2, descr
  * @apiParam title1 Item's title1.
  * @apiParam title2 Item's title2.
  * @apiParam title3 Item's title3.
- * @apiParam desciption1 Item's desciption1.
+ * @apiParam description1 Item's description1.
  * @apiParam description2 Item's description2.
  * @apiParam description3 Item's description3.
  * @apiParam tags Item's tags.
@@ -36,7 +36,7 @@ const { name, subtitle, title1, title2, title3, desciption1, description2, descr
  */
 router.post('/',
   token({ required: true, roles: ['admin'] }),
-  body({ name, subtitle, title1, title2, title3, desciption1, description2, description3, tags, image, cardImg1, cardImg2, cardImg3, userContact }),
+  body({ name, subtitle, title1, title2, title3, description1, description2, description3, tags, image, cardImg1, cardImg2, cardImg3, userContact }),
   create)
 
 /**
@@ -73,7 +73,7 @@ router.get('/:id',
  * @apiParam title1 Item's title1.
  * @apiParam title2 Item's title2.
  * @apiParam title3 Item's title3.
- * @apiParam desciption1 Item's desciption1.
+ * @apiParam description1 Item's description1.
  * @apiParam description2 Item's description2.
  * @apiParam description3 Item's description3.
  * @apiParam tags Item's tags.
@@ -89,7 +89,7 @@ router.get('/:id',
  */
 router.put('/:id',
   token({ required: true, roles: ['admin'] }),
-  body({ name, subtitle, title1, title2, title3, desciption1, description2, description3, tags, image, cardImg1, cardImg2, cardImg3, userContact }),
+  body({ name, subtitle, title1, title2, title3, description1, description2, description3, tags, image, cardImg1, cardImg2, cardImg3, userContact }),
   update)
 
 /**
