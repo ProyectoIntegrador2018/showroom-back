@@ -16,7 +16,14 @@ export const index = ({ querymen: { query, select, cursor } }, res, next) =>
 
 export const show = ({ params }, res, next) =>
   Link.findById(params.id)
-    .populate('userContact items')
+    .populate('userContact')
+    .populate({
+      path: 'items',
+      populate: {
+        path: 'userContact',
+        model: 'User'
+      }
+    })
     .then(notFound(res))
     .then((link) => link ? link.view() : null)
     .then(success(res))
